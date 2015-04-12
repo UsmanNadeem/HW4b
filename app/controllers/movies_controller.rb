@@ -2,11 +2,22 @@ class MoviesController < ApplicationController
 
   def show
     id = params[:id] # retrieve movie ID from URI route
-    @movie = Movie.find(id) # look up movie by unique ID
+    # if id == "director"
+      # @movie = Movie.find(0)
+    # else
+      @movie = Movie.find(id) # look up movie by unique ID
+    # end
     # will render app/views/movies/show.<extension> by default
   end
   def findwithsamedirector
-    @movies = Movie.find_all_by_director(params[:director])
+    me = Movie.find(params[:id])
+    if me.director == nil
+      # @movies = []
+      # @movies << me
+      redirect_to movies_path
+    else
+      @movies = Movie.find_all_by_director(me.director)
+    end
     @all_ratings = Movie.all_ratings
     @selected_ratings = params[:ratings] || session[:ratings] || {}
   end
