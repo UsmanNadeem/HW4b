@@ -1,0 +1,4 @@
+class AddDirectorToDb < ActiveRecord::Migration
+  def change
+  end
+end
