@@ -18,4 +18,3 @@ Scenario: add director to existing movie
   And  I fill in "Director" with "Ridley Scott"
   And  I press "Update Movie Info"
   Then the director of "Alien" should be "Ridley Scott"
-
