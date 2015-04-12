@@ -26,8 +26,11 @@ module NavigationHelpers
       edit_movie_path Movie.find_by_title($1)
     when /^the details page for "(.*)"$/i
       movie_path(Movie.find_by_title($1))
+    when /^the Similar Movies page for "(.*)"$/i
+      findwithsamedirector_path Movie.find_by_title($1).director
+      
     # when /^the Similar Movies page for "(.*)"$/i
-    #   same_Director_path Movie.find_by_title($1)
+      # findwithsamedirector_path Movie.find_by_title($1).director
 
     else
       begin
