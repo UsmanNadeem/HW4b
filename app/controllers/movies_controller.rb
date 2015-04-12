@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
       flash.keep
       redirect_to movies_path
     else
-      @movies = Movie.find_all_by_director(me.director)
+      @movies = Movie.find_all_with_same_director(params[:id])
     end
   end
   def index
